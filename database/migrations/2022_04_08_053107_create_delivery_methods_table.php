@@ -15,7 +15,14 @@ return new class extends Migration
     {
         Schema::create('delivery_methods', function (Blueprint $table) {
             $table->id();
+            $table ->string('name');// varcahr 255
+            
+            $table->longText('decription')->nullable();// text
+
+            $table -> boolen('is_active')->default(true);
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -22,6 +22,8 @@ return new class extends Migration
 
             $table->string('image')->nullable();
 
+            $table->longText('address')->nullable();// text
+
             $table -> boolen('is_active')->default(true);
 
             $table->timestamps();

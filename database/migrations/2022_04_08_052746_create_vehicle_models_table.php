@@ -15,7 +15,20 @@ return new class extends Migration
     {
         Schema::create('vehicle_models', function (Blueprint $table) {
             $table->id();
+
+            $table->bigInteger('manufacturers_id')->unsigned(); // bigint 10 - unsigned
+            $table ->foreign('manufacturers_id')->refernces('id')->on('manufacturer'); //foreign key
+
+            $table ->string('name');// varcahr 255
+            
+            $table->longText('decription')->nullable();// text
+
+            $table->string('image')->nullable();
+
+            $table -> boolen('is_active')->default(true);
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
